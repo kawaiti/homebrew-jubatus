@@ -31,8 +31,7 @@ class ZooKeeperRequirement < Requirement
 end
 
 class Jubatus < Formula
-  # url 'https://github.com/jubatus/jubatus/tarball/0.5.0'
-  url 'https://github.com/hido/jubatus/tarball/fix_macosx_error'
+  url 'https://github.com/jubatus/jubatus/tarball/0.5.0'
   head 'https://github.com/jubatus/jubatus.git'
   homepage 'http://jubat.us/'
   sha1 'ae06f9b0a6dc39c6b37f9de1bb74ea874d231a25'

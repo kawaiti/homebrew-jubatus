@@ -5,5 +5,4 @@ A repository for Jubatus brews.
 ## How to use
 
 	$ brew tap jubatus/jubatus
-	$ brew install --HEAD pficommon
-	$ brew install jubatus
+	$ brew install jubatus --use-clang
