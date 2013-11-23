@@ -37,7 +37,7 @@ class Jubatus < Formula
   sha1 'ae06f9b0a6dc39c6b37f9de1bb74ea874d231a25'
   version '0.5.0'
 
-  option 'disable-re2', 'Stop using re2 for regx'
+  option 'disable-onig', 'Stop using re2 for regx'
   option 'enable-mecab', 'Using mecab for Japanese NLP'
   option 'enable-zookeeper', 'Using zookeeper for distributed environemnt'
 
@@ -47,7 +47,7 @@ class Jubatus < Formula
 
   depends_on ZooKeeperRequirement.new if build.include? 'enable-zookeeper'
   depends_on 'mecab' if build.include? "enable-mecab"
-  depends_on 're2' unless build.include? "disable-re2"
+  depends_on 'oniguruma' unless build.include? "disable-onig"
   # snow leopard default gcc version is 4.2
   depends_on 'gcc' if build.include? 'snow-leopard'
 
@@ -75,7 +75,7 @@ class Jubatus < Formula
     STDERR.puts ENV['CC'], ENV['CXX']
     args = []
     args << "--prefix=#{prefix}"
-    args << "--disable-re2" if build.include? "disable-re2"
+    args << "--disable-onig" if build.include? "disable-onig"
     args << "--enable-mecab" if build.include? "enable-mecab"
     args << "--enable-zookeeper" if build.include? "enable-zookeeper"
     system "./waf", "configure", *args
